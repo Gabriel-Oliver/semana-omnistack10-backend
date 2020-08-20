@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+mongoose.set('useCreateIndex', true);
 const cors = require("cors");
 const routes = require("./routes");
 
@@ -13,7 +14,7 @@ mongoose.connect(
   }
 );
 // json sempre antes das rotas
-app.use(cors({}));
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
